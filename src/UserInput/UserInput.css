@@ -1,0 +1,9 @@
+
+
+.UserInput input[type=text] {
+  border: 1px solid darkblue;
+  background-color: #fff;
+  color: blue;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}

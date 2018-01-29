@@ -1,0 +1,25 @@
+.App {
+  background-color: white;
+  border: 1px solid darkkhaki;
+  width: 400px;;
+  margin: 0 auto;
+  padding: 10px 10px 0 10px;
+}
+
+.App span {
+  padding-right: 5px;
+  color: forestgreen;
+}
+
+.App h1 {
+  color: darkolivegreen;
+}
+
+.App div {
+  margin-bottom: 8px;
+}
+
+.App div:nth-of-type(2) {
+  background-color: forestgreen;
+  color: white;
+}
