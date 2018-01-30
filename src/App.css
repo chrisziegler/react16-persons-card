@@ -19,7 +19,20 @@
   margin-bottom: 8px;
 }
 
-.App div:nth-of-type(2) {
+
+
+.App span.length {
+  margin-left: 7px;
+}
+
+/*.App div:nth-of-type(2) {
   background-color: forestgreen;
   color: white;
+} */
+
+.charList div {
+  margin: 0;
+}
+.charList div:nth-of-type(even) {
+  background-color: red;
 }

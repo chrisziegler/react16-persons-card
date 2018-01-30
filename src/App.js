@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import ValidationComponent from './ValidationComponent/ValidationComponent';
+import CharComponent from './CharComponent/CharComponent';
 
 class App extends Component {
   state = {
     persons: [
-      { id: 'fg5', name: 'Max', age: 28 },
-      { id: 'ar3', name: 'Manu', age: 29 },
-      { id: 'po9', name: 'Stephanie', age: 26 }
+      { id: 'fg5', name: 'Elon Musk', age: 46 },
+      { id: 'ar3', name: 'Neil deGrasse Tyson', age: 59 },
+      { id: 'po9', name: 'Timothy Berners-Lee ', age: 62 }
     ],
-    otherState: 'some other value',
-    showPersons: false
+    showPersons: false,
+    customText: 'WASHINGTONSTATECOUGS'
   }
 
   // index would work (with findIndex), but since we have ids available
@@ -40,6 +42,18 @@ class App extends Component {
     this.setState({showPersons: !toggleShow})
   }
 
+  customTextHandler = (event) => {
+    this.setState({customText: event.target.value})
+  }
+
+  deleteCharacterHandler = (id) => {
+  // let customText = this.state.customText.split('');
+  let customText = [...this.state.customText];
+  customText.splice(id, 1);
+  const updatedCustomText = customText.join('');
+  this.setState({customText: updatedCustomText})
+  }
+
   render () {
     const style = {
       backgroundColor: 'linen',
@@ -50,6 +64,19 @@ class App extends Component {
       cursor: 'pointer',
       borderRadius: 4
     }
+    
+    
+    const charList = this.state.customText.split('').map((char, index) => {
+      // let id = Math.floor(Math.random()*10000);
+      return (
+        <CharComponent 
+        character={char} 
+        key={index}
+        clicked={() => this.deleteCharacterHandler(index)}
+        />
+      )
+    })
+    
 
     let persons = null;
     if (this.state.showPersons) {
@@ -70,8 +97,17 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Hi, I'm a React App</h1>
-        <p>This is really working!</p>
+        <h1>Interesting People</h1>
+        <p>Space and Technology</p>
+        <div>
+          <input onChange={this.customTextHandler}
+          type="text"
+          value={this.state.customText}
+        />
+        <span className="length">{this.state.customText.length}</span>
+        <ValidationComponent length={this.state.customText.length} />
+        <div className="charList">{charList}</div>
+        </div>
         <button
         style={style}
         onClick={this.togglePersonHandler}><span className="fa fa-align-justify"></span>Toggle People</button>

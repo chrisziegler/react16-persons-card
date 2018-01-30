@@ -1,0 +1,7 @@
+.ValidationComponent {
+  color: orangered;
+}
+
+.ValidationComponent.good {
+  color: limegreen;
+}
