@@ -4,6 +4,7 @@ import Person from './Person/Person';
 import ValidationComponent from './ValidationComponent/ValidationComponent';
 import CharComponent from './CharComponent/CharComponent';
 
+
 class App extends Component {
   state = {
     persons: [
@@ -15,7 +16,6 @@ class App extends Component {
     customText: 'WASHINGTONSTATECOUGS'
   }
 
-  // index would work (with findIndex), but since we have ids available
   nameChangedHandler = (event, id) => {
     const newName = event.target.value;
     this.setState( prevState => ({
@@ -47,7 +47,6 @@ class App extends Component {
   }
 
   deleteCharacterHandler = (id) => {
-  // let customText = this.state.customText.split('');
   let customText = [...this.state.customText];
   customText.splice(id, 1);
   const updatedCustomText = customText.join('');
@@ -62,12 +61,11 @@ class App extends Component {
       padding: '5px',
       marginBottom: 10,
       cursor: 'pointer',
-      borderRadius: 4
+      borderRadius: 4,
     }
     
     
     const charList = this.state.customText.split('').map((char, index) => {
-      // let id = Math.floor(Math.random()*10000);
       return (
         <CharComponent 
         character={char} 
@@ -97,8 +95,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Interesting People</h1>
-        <p>Space and Technology</p>
+        <h1>Experiments in 2-way binding in React.</h1>
+        <p>Some cards</p>
         <div>
           <input onChange={this.customTextHandler}
           type="text"

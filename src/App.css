@@ -6,12 +6,17 @@
   padding: 10px 10px 0 10px;
 }
 
+@media(min-with: 800px) {
+  width: 600px
+}
+
 .App span {
   padding-right: 5px;
-  color: forestgreen;
+  color: red;
 }
 
 .App h1 {
+  font-family: 'Supermercado One', cursive;
   color: darkolivegreen;
 }
 
@@ -20,9 +25,8 @@
 }
 
 
-
 .App span.length {
-  margin-left: 7px;
+  margin-left: 20px;
 }
 
 /*.App div:nth-of-type(2) {
@@ -35,4 +39,12 @@
 }
 .charList div:nth-of-type(even) {
   background-color: red;
+}
+
+input {
+  font-family: 'Lato', sans-serif;
+  width: 75%;
+  padding: 8px;
+  font-size: 1.4rem;
+  border-radius: 6px;
 }
